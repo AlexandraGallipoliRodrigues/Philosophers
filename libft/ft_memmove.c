@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2021/05/20 21:35:14 by agallipo          #+#    #+#             */
+/*   Updated: 2021/09/23 11:30:58 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-    t_philo    *philo;
+	unsigned char	*aux_dest;
+	unsigned char	*aux_src;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	aux_dest = ((unsigned char *)dest);
+	aux_src = ((unsigned char *)src);
+	if (aux_dest > aux_src)
+	{
+		while (len-- != 0)
+		{
+			aux_dest[len] = aux_src[len];
+		}
+	}
+	else
+		ft_memcpy(aux_dest, aux_src, len);
+	return (aux_dest);
 }

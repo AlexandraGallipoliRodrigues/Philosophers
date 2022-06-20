@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ycarro <ycarro@student.42.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2021/06/21 13:39:50 by agallipo          #+#    #+#             */
+/*   Updated: 2022/03/02 15:21:20 by ycarro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-    t_philo    *philo;
+	t_list	*next;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	if (!del || !lst)
+		return ;
+	while (*lst)
+	{
+		next = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		(*lst) = next;
+	}
+	*lst = NULL;
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2021/06/21 13:36:59 by agallipo          #+#    #+#             */
+/*   Updated: 2021/06/21 13:48:45 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-    t_philo    *philo;
+	int	i;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2021/05/21 13:52:41 by agallipo          #+#    #+#             */
+/*   Updated: 2021/09/23 11:30:11 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    t_philo    *philo;
+	size_t	i;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	i = 0;
+	while (i < n)
+	{
+		if (((char *)s)[i] == (char)c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (n == 0)
+		return (NULL);
+	return (NULL);
 }

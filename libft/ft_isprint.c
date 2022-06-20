@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agallipo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2021/06/21 13:31:21 by agallipo          #+#    #+#             */
+/*   Updated: 2021/06/21 13:31:24 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_isprint(int c)
 {
-    t_philo    *philo;
-
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }

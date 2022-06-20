@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_mtxdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2022/04/27 10:34:51 by agallipo          #+#    #+#             */
+/*   Updated: 2022/05/04 11:54:40 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	**ft_mtxdup(char **mtx)
 {
-    t_philo    *philo;
+	char	**ret;
+	int		i;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	ret = malloc((ft_mtxlen(mtx) + 1) * sizeof(char *));
+	i = 0;
+	while (mtx[i])
+	{
+		ret[i] = ft_strdup(mtx[i]);
+		i++;
+	}
+	ret[i] = NULL;
+	return (ret);
 }

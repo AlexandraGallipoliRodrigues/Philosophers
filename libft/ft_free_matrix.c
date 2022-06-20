@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ycarro <ycarro@student.42.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2022/02/08 17:33:04 by agallipo          #+#    #+#             */
+/*   Updated: 2022/05/16 17:00:23 by ycarro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_free_matrix(char **mtrx)
 {
-    t_philo    *philo;
+	int	i;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	i = 0;
+	while (mtrx[i])
+	{
+		free(mtrx[i]);
+		i++;
+	}
+	free(mtrx);
+}
+
+void	ft_free_mtxbasic(char **mtrx)
+{
+	int	i;
+
+	i = 0;
+	while (mtrx[i])
+	{
+		free(mtrx[i]);
+		i++;
+	}
 }

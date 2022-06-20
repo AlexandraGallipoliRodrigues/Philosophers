@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agallipo <agallipo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 18:58:19 by agallipo          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:56 by agallipo         ###   ########.fr       */
+/*   Created: 2021/06/21 13:37:45 by agallipo          #+#    #+#             */
+/*   Updated: 2021/06/21 13:48:48 by agallipo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosoper.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_putnbr_fd(int n, int fd)
 {
-    t_philo    *philo;
+	long	nbr;
 
-    if (argc != 4 || argc != 5)
-        return (1);
-    philo = init_philo(argv);
-    
+	nbr = n;
+	if (nbr == -2147483648)
+		write(fd, "-2147483648", 11);
+	if (nbr != -2147483648)
+	{
+		if (nbr < 0)
+		{
+			ft_putchar_fd('-', fd);
+			nbr = -nbr;
+		}
+		if (nbr >= 10)
+		{
+			ft_putnbr_fd(nbr / 10, fd);
+			ft_putnbr_fd(nbr % 10, fd);
+		}
+		else
+			ft_putchar_fd(nbr + '0', fd);
+	}
 }
